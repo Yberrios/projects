@@ -1,0 +1,254 @@
+
+<html>
+<head>
+ <meta charset="utf-8" />
+ <link href="projectbudgettoollayoutYberrios.css" rel="stylesheet"/>
+</head>
+  
+ <script type="text/javascript" >
+      
+
+      
+ function calBud(){
+        
+        var projectSell=Number(document.getElementById("projectSell").value);
+        document.getElementById("projectSell").value=projectSell.toFixed(2);
+        var margin=0.60;
+        var budget = projectSell * margin;
+        document.getElementById("budget").value=budget.toFixed(2);
+            return budget;
+
+    }
+
+    function usHours(){
+        
+        var numUSHours=Number(document.getElementById("numUSHours").value);
+        var USRate=50;
+        var USTotal=USRate*numUSHours;
+        document.getElementById("USTotal").value=USTotal.toFixed(2);
+        return USTotal;
+    }
+    
+     function indHours(){
+        
+        var numIndHours=Number(document.getElementById("numIndHours").value);
+        var indRate=20;
+        var indTotal=indRate*numIndHours;
+        document.getElementById("indTotal").value=indTotal.toFixed(2);
+        return indTotal;
+     
+    }
+             
+   function getTotal(){
+       
+       var equipSpend=Number(document.getElementById("equipSpend").value);
+       var total= (usHours() + indHours()) + equipSpend;
+       document.getElementById("acttot").value=total.toFixed(2);
+       return total;
+   }
+
+  function getBall(){
+        var projectSell=Number(document.getElementById("projectSell").value);
+        document.getElementById("projectSell").value=projectSell.toFixed(2);
+        var margin=0.60;
+        var budget = projectSell * margin;
+        document.getElementById("budget").value=budget.toFixed(2);
+        var equipSpend=Number(document.getElementById("equipSpend").value);
+        document.getElementById("equipSpend").value=equipSpend; 
+      var bal= budget-(usHours() + indHours() + equipSpend);
+       document.getElementById("balance").value=bal.toFixed(2); 
+       return bal;
+  }
+     
+        </script> 
+  
+</html>
+<!--Project form-->
+    
+    
+<form id = "BudgetForm" action="">
+   
+
+<fieldset>
+  <h2>Project Budget Form</h2>
+          <label class="field" for="projectSell"     
+      
+                 >Project sell price:</label>
+    <div class="dollars">
+        
+          <input type="number"  
+                 name="projectSell" 
+                 id="projectSell"  
+                 id="equipSpend"  
+                 id="balance" 
+                 id="budget" 
+                 id="acttot" 
+                 id="numIndHours" 
+                 id="indTotal" 
+                 id="numUSHours" 
+                 id="USTotal"   
+                 onchange="calBud();" 
+                 onchange="getBall();"  
+                 onchange="getTotal();"
+                 onchange="value"
+                 autofocus autoload  min="1.00" /></div>
+     
+          <label class="field">Project Budget:</label>
+        <div class="dollars">
+          <input type="number" name="budget" value="0"
+                 id="budget" 
+                 id="equipSpend" 
+                 id="acttot" 
+                 id="projectSell" 
+                 id="USTotal" 
+                 id="indTotal"   
+                 id="balance" 
+                 onchange="getTotal();" 
+                 onchange="calBud();"  
+                 onchange="getBall();"  
+                 onkeydown="getTotal();" 
+                 onkeyup="getTotal();" 
+                 onkeydown="getBall();" 
+                 oninput="getBall;" 
+                 onshow="getBall();"disabled /> </div>
+    
+     
+          <label class="field" for="numUSHours">Enter number of hours for salaried employees:</label><div class="hours">
+          <input type="number" name="numUSHours"  value="0" 
+                 id="numUSHours" 
+                 id="USTotal" 
+                 id="projectSell"   
+                 id="acttot" 
+                 id="balance" 
+                 id="budget" 
+                 id="equipSpend"   
+                 onchange="usHours();" 
+                 onkeydown="getTotal();" 
+                 onkeyup="getTotal();" 
+                 onkeyup="getBall();" 
+                 onkeydown="getBall();" 
+                 onkeypress="getBall();" 
+                 oninput="getBall();"  
+                 onblur="calBud();"/> </div>
+    
+         <label class="field" >Total cost for salaried employees at $50.00/hr:</label> 
+                <div class="dollars">
+          <input type="number" name="USTotal" value="0" 
+                 id="USTotal" 
+                 id="acttot" 
+                 id="balance" 
+                 id="budget" 
+                 id="equipSpend" 
+                 id="projectSell"   
+                 onchange="getTotal();" 
+                 onkeyup="getTotal();" 
+                 onkeydown="getBall();" 
+                 onkeydown="getTotal();" 
+                 onkeypress="getBall();" 
+                 onchange="getBall();" disabled/> </div>
+    
+          <label class="field" for="numIndiaHours">Enter number of hours for contractors:</label><div class="hours">
+          <input type="number" name="numIndiaHours" value="0" 
+                 id="numIndHours" 
+                 id="indTotal"  
+                 id="acttot" 
+                 id="balance" 
+                 id="budget" 
+                 id="projectSell"  
+                 id="equipSpend"  
+                 onkeyup="getTotal();"  
+                 onchange="indHours();" 
+                 onkeydown="getTotal();" 
+                 onkeydown="getBall;" 
+                 onkeypress="getBall();" 
+                 oninput="getBall();" 
+                 onchange="getBall();"/> </div>
+     
+          <label class="field" >Total cost for contractors at $20.00/hr:</label>
+                        <div class="dollars">
+          <input type="number" name="IndiaTotal" value="0" 
+                 id="indTotal" 
+                 id="acttot" 
+                 id="balance" 
+                 id="budget" 
+                 id="equipSpend" 
+                 id="projectSell"   
+                 onkeyup="getTotal();" 
+                 onkeydown="getTotal();" 
+                 onchange="getTotal();" 
+                 onkeypress="getBall();" 
+                 onchange="getBall();" 
+                 onkeydown="getTotal();" disabled/>  </div>
+    
+        
+        <label class="field" >Equipment spend for project:</label>
+                                <div class="dollars">
+        <input type="number" name="equipSpend" value="0" 
+               id="equipSpend" 
+               id="projectSell"  
+               id="acttot" 
+               id="balance" 
+               id="budget"  
+               id="projectSell"  
+               id="numUSHours" 
+               id="numIndHours"  
+               oninput="getTotal();"  
+               onchange="getTotal();" 
+               oninput="getBall();"   
+               onchange="getBall();" 
+                onkeyup="getBall();" 
+               onkeypress="getBall();" 
+               onblur="getBall();">  <p />
+    
+                   </div>
+    
+         <label class="field" for="acttot">Total spend for project:</label> <div class="dollar">
+        <input id="acttot" 
+               id="balance" 
+               id="budget" 
+               id="equipSpend" 
+               id="USTotal" 
+               id="indTotal" 
+               id="equipSpend" 
+               id="projectSell"  
+               id="numUSHours" 
+               id="numIndHours"  type="number" value="0" 
+               onkeyup="getBall();" 
+               onkeypress="getBall;"  
+             onkeypress="getTotal();"
+                onchange="getTotal();" 
+               onchange="getBall();" 
+               onkeydown="getBall();" 
+               onkeydown="getTotal();"  
+               oninput="usHours();" 
+               oninput="indHours();" 
+               oninput="equipSpend" 
+                oninput="getBall();" 
+               readonly/><p /></div>
+               
+        <label for="balance">Balance:</label>
+       <div class="dollar">
+        <input     
+               id="balance" 
+               id="budget" 
+               id="equipSpend" 
+               id="numIndHours" 
+               id="indTotal" 
+               id="numUSHours" 
+               id="USTotal"  
+               id="projectSell" 
+               id="balance"  
+               id="acttot"  
+                id="mySelect"
+               type="number"  
+               value="0"    
+               readonly  /><p /></div>
+    
+     <div class="reset">
+         <button type="reset" value="Reset Form">Reset</button></div>
+     </fieldset> 
+     </form>
+
+
+
+

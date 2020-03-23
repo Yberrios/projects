@@ -1,0 +1,169 @@
+   @charset "utf-8";
+   
+   /*Body style */
+        
+html{
+    background-color:rgba(165, 167, 172, 0.6);
+    font-size: 14;
+    font-family: "Times New Roman";}
+
+form {
+    
+    background: url(backgroundpinkYberrios.png);
+    font-size: 16;
+	box-shadow: rgb(139, 127, 127)30px 0px 45px, rgb(88, 84, 84)-30px 0px 45px;   
+    padding: 1em;
+    border: 1px solid #c1c1c1;
+    margin-top: 6rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+   
+    max-height:auto;
+}
+form input {
+    margin-bottom: 1rem;
+    padding-left:20px;
+    border:.05px
+      solid #9c9c9c;
+}
+form button {
+    background: lightgrey;
+    padding: 0.5em;
+
+    align-content: center;
+    width: 150px;
+    height: 33px;
+
+}
+
+h2{
+    font-family: "Book Antiqua";
+    font-weight:100;
+    margin-top: 0.5rem;
+    font-size: 26px;
+    text-align: center;
+}
+    
+label,p
+{
+  margin-right: 1rem;
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+    
+}
+ 
+
+
+input {
+  width: 20%;
+  padding: 2em;
+  margin-bottom: 0.5rem;
+    
+}
+input:focus {
+  outline: 2px solid rgb(20, 168, 38);
+}
+
+
+@media (min-width: 400px) {
+  form {
+    overflow: hidden;
+  }
+
+  label {
+    float: left;
+      
+    width: 200px;
+      
+  }
+
+  input {
+    float: left;
+    width: calc( 90% - 200px);
+      
+  }
+    
+  button {
+    float: center;
+    width: calc(50% - 200px);
+  }
+}
+input.textbox    {
+    width: 400px;
+    
+}
+input,select{
+    width:300px;
+    padding:0.7em;
+    align-content:center;
+}
+
+div.hours{
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+}
+div.settings label       { 
+    
+    text-align:right; }
+
+div.settings label:after { 
+    
+    content: ":"; 
+}
+
+div.dollar{
+    
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+       
+}
+div.dollars{
+    display:grid;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+}
+    
+.dollar{
+	display:inline-block;
+	position: relative;
+   
+	}
+
+.dollar input{
+	padding-left:20px;
+    outline: 2px solid rgb(92, 86, 86);
+	}
+
+.dollar:before {
+	position: absolute;
+    content:"$";
+    left:5px;
+	top:8px;
+    align-content: center;
+ 	}
+
+.dollars{
+	display:inline-block;
+	position: relative;
+	}
+.dollars input{
+	padding-left:20px;
+ 
+	}
+.dollars:before {
+	position: absolute;
+    content:"$";
+    left:5px;
+	top:7px;
+    align-content: center;
+ 	}
+
+.reset{
+    position: relative;
+    padding-left:216px;
+   
+}
